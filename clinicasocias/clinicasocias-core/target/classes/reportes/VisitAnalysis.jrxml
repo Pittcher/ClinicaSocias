@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CabeceraOrdenes" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af82dc9d-368b-4534-8e53-549a2bf5fccf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="SansSerif" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="SansSerif" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="SansSerif" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="SansSerif" fontSize="12"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="actividad" class="java.lang.String">
+		<fieldDescription><![CDATA[actividad]]></fieldDescription>
+	</field>
+	<field name="customerCode" class="java.lang.String">
+		<fieldDescription><![CDATA[customerCode]]></fieldDescription>
+	</field>
+	<field name="customerName" class="java.lang.String">
+		<fieldDescription><![CDATA[customerName]]></fieldDescription>
+	</field>
+	<field name="duracionVisita" class="java.lang.String">
+		<fieldDescription><![CDATA[duracionVisita]]></fieldDescription>
+	</field>
+	<field name="estado" class="java.lang.String">
+		<fieldDescription><![CDATA[estado]]></fieldDescription>
+	</field>
+	<field name="finVisita" class="java.lang.String">
+		<fieldDescription><![CDATA[finVisita]]></fieldDescription>
+	</field>
+	<field name="inicioVisita" class="java.lang.String">
+		<fieldDescription><![CDATA[inicioVisita]]></fieldDescription>
+	</field>
+	<field name="routeCode" class="java.lang.String">
+		<fieldDescription><![CDATA[routeCode]]></fieldDescription>
+	</field>
+	<field name="visitType" class="java.lang.String">
+		<fieldDescription><![CDATA[visitType]]></fieldDescription>
+	</field>
+	<variable name="Route" class="java.lang.String">
+		<variableExpression><![CDATA[$F{routeCode}]]></variableExpression>
+	</variable>
+	<group name="Route" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{routeCode}]]></groupExpression>
+		<groupHeader>
+			<band height="170">
+				<frame>
+					<reportElement uuid="26893261-350c-4b10-b4ec-1b339d4d96f5" mode="Opaque" x="0" y="0" width="555" height="93" backcolor="#006699"/>
+					<staticText>
+						<reportElement uuid="8918b6b9-e325-406e-8d34-3064f408fb48" x="20" y="20" width="234" height="43" forecolor="#FFFFFF"/>
+						<textElement>
+							<font size="24" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Visit analysis]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="dbbc0c47-7beb-4b26-9cf1-ff863405f2ca" x="356" y="55" width="180" height="20" forecolor="#FFFFFF"/>
+						<textElement textAlignment="Right">
+							<font size="14" isBold="false"/>
+						</textElement>
+						<text><![CDATA[MW 2.0]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="9ff04fb2-2ce8-4120-be4f-df4246ff293f" x="20" y="70" width="54" height="23" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="18" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Route]]></text>
+					</staticText>
+					<textField>
+						<reportElement uuid="ca6d7535-52ec-4504-a212-476dd9842786" x="74" y="73" width="100" height="20" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="15"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{routeCode}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement uuid="de452204-28e7-408e-962b-16a3cae033bd" mode="Opaque" x="0" y="93" width="555" height="44" backcolor="#003366"/>
+					<staticText>
+						<reportElement uuid="8dc54d35-f3bc-4ea2-92fb-35aac17623ce" x="291" y="23" width="34" height="20" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Start]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="522a9f11-5109-4e14-ada9-e3755464539c" x="336" y="24" width="30" height="20" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[End]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="5be49c37-e3df-496b-9706-4c977fe88869" x="382" y="24" width="36" height="20" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Dur.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="d8b6a309-45ca-4817-8816-2070d0223d83" x="493" y="23" width="62" height="20" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Scanner]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="cc031b21-0d46-4b7a-b38c-46c20551e6f2" x="0" y="23" width="34" height="20" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Code]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="c486473e-5968-46af-acbb-203e99392cf3" x="60" y="23" width="231" height="20" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Customer]]></text>
+					</staticText>
+					<staticText>
+						<reportElement uuid="086010b7-e2b8-4e13-930e-3355d8d83100" x="429" y="23" width="52" height="20" forecolor="#CCCCCC"/>
+						<textElement>
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Type]]></text>
+					</staticText>
+				</frame>
+				<line>
+					<reportElement uuid="8ffb77bf-d320-48fc-894d-4b140ae60b3f" x="0" y="139" width="555" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<printWhenExpression><![CDATA[$F{routeCode}==$V{Route}]]></printWhenExpression>
+			<textField>
+				<reportElement uuid="98f7b0de-fea8-4a88-9094-42703f19db40" x="0" y="0" width="60" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{customerCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="112d7b56-9032-4b23-824c-99c26e5eb596" x="60" y="0" width="215" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{customerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3c3c8edf-fb60-49e0-8553-72dd4e908a0d" x="291" y="0" width="34" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{inicioVisita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="52361aef-f345-4c37-87df-af5b610c6841" x="336" y="0" width="30" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{finVisita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="542a2921-99f8-4efe-bbdc-8d1084359c55" x="382" y="0" width="36" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{duracionVisita}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="567e42c6-7fe0-4fbd-8cf3-dd6777e689b0" x="429" y="0" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{visitType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7dce7ada-90e9-402e-89e6-be4926b2da10" x="493" y="0" width="62" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="4cebfb1b-1bff-4ae8-af63-4a0e217253fb" x="0" y="19" width="555" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement uuid="6839dc2f-1c36-4afb-95b9-88d3933ba189" mode="Opaque" x="515" y="41" width="40" height="13" backcolor="#E6E6E6"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="322d9482-fc69-4523-a248-d56344fe12ba" mode="Opaque" x="0" y="41" width="515" height="13" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="2bea5ba1-bc40-4069-9a52-6eede24d30fa" x="0" y="41" width="100" height="13"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="3c19ac9e-2234-4b55-bf95-a1ec2ace4629" x="0" y="0" width="555" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

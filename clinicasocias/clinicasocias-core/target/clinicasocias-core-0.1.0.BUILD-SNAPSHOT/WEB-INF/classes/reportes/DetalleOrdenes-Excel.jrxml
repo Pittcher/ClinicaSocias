@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DetalleOrdenes" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9125eccf-17c9-4160-8b42-8a1430a28b88">
+	<property name="ireport.zoom" value="5.0"/>
+	<property name="ireport.x" value="1531"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="codigoProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[codigoProducto]]></fieldDescription>
+	</field>
+	<field name="descripcionProducto" class="java.lang.String">
+		<fieldDescription><![CDATA[descripcionProducto]]></fieldDescription>
+	</field>
+	<field name="precio" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[precio]]></fieldDescription>
+	</field>
+	<field name="subtotal" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[subtotal]]></fieldDescription>
+	</field>
+	<field name="subunidades" class="java.lang.Long">
+		<fieldDescription><![CDATA[subunidades]]></fieldDescription>
+	</field>
+	<field name="totalAjustes" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalAjustes]]></fieldDescription>
+	</field>
+	<field name="totalImpuestos" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[totalImpuestos]]></fieldDescription>
+	</field>
+	<field name="unidades" class="java.lang.Long">
+		<fieldDescription><![CDATA[unidades]]></fieldDescription>
+	</field>
+	<variable name="unidadTotal" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{unidades}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="16">
+			<textField>
+				<reportElement mode="Opaque" x="415" y="0" width="50" height="14" uuid="331314b0-9aff-48c4-a9a5-76e46e05f4fb"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tax"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="365" y="0" width="50" height="14" uuid="c51a3a6e-dd9d-4569-a81c-d1304098685a"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ajust"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="285" y="0" width="30" height="14" uuid="34f54e9d-2afc-4987-a734-31f64f17810d"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SU"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="70" y="0" width="185" height="14" uuid="888ebadc-2d9a-4df0-b26c-bd9fb375c879"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Description"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="0" width="70" height="14" uuid="8002a314-701a-4caf-84e1-e483a3ca38ab"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Product"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="255" y="0" width="30" height="14" uuid="ab308258-5a1a-4840-843c-faf0c3d048fc"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Units"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="315" y="0" width="50" height="14" uuid="c9d9d750-4387-4782-9a70-b3a56aa821e9"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Price"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="465" y="0" width="90" height="14" uuid="8dbc808b-8d0d-4b7d-8ff2-713df824ddc6"/>
+				<textElement markup="none">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Subtotal"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="0" y="0" width="70" height="11" uuid="fb05ac19-d333-40f2-a96f-e6b6e50e2b54"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoProducto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement mode="Opaque" x="70" y="0" width="185" height="11" uuid="20a90d13-7646-42d6-b042-d7a37a432294"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcionProducto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.000">
+				<reportElement mode="Opaque" x="315" y="0" width="50" height="11" uuid="afa2defe-7bdd-4563-85bc-214a30559be2"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.000">
+				<reportElement mode="Opaque" x="465" y="0" width="90" height="11" uuid="83c3e859-d793-413f-81f8-103ed173f789"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="285" y="0" width="30" height="11" uuid="787029d7-b9d4-4bb4-8fe0-b14146b8072e"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subunidades}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.000">
+				<reportElement mode="Opaque" x="415" y="0" width="50" height="11" uuid="1ff15988-a195-4eee-b7b0-f62faac26f0d"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalImpuestos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0">
+				<reportElement mode="Opaque" x="255" y="0" width="30" height="11" uuid="359cc9f9-d141-45a0-bd03-f9c92f6a1901"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unidades}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.000">
+				<reportElement mode="Opaque" x="365" y="0" width="50" height="11" uuid="1832b42f-de95-449b-be21-022f7cb76cd9"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalAjustes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
