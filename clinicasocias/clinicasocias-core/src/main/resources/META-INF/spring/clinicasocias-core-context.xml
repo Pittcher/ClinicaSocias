@@ -42,6 +42,10 @@
 		</property>
 	</bean>
 
+<!-- Beans Comunes o Helpers -->
+	<bean id="criptHelperImpl" class="com.sistemas.core.commons.CriptHelperImpl">
+	</bean>
+<!-- Beans de Seguridad -->
 	<bean id="usuarioImplBean" class="com.sistemas.core.seguridad.UsuarioImplBean">
 	</bean>
 	<bean id="usuarioServiceImpl" class="com.sistemas.services.seguridad.UsuarioServiceImpl">
