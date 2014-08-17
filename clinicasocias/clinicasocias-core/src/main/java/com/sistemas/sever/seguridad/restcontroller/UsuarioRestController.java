@@ -41,29 +41,41 @@ public class UsuarioRestController {
 	@RequestMapping(value="/loguear", method=RequestMethod.POST)
 	public void loguear(HttpServletRequest request, HttpServletResponse response) {
 
-	
-		System.out.println("llegue");
-		System.out.println(usuarioService);
-		System.out.println(request.getParameter("user"));
-		System.out.println(request.getParameter("password"));
+		RequestDispatcher loginView = request.getRequestDispatcher("/login.jsp");
 		try {
 //			if( usuarioService.login(request.getParameter("user"),request.getParameter("password"),request.getSession())!=false){
 			usuarioService.loguear(request.getParameter("user"), request.getParameter("password"),request.getSession());
 			    RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
-			    try {
+//			    try {
+			    	request.setAttribute("mensajeLogin", "");
 					view.forward(request, response);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (ServletException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} 
+//				} catch (IOException e1) {
+//					// TODO Auto-generated catch block
+//
+//					request.setAttribute("mensajeLogin", "Usuario o clave incorrecta.");
+//					loginView.forward(request, response);
+//					e1.printStackTrace();
+//				} catch (ServletException e) {
+//					// TODO Auto-generated catch block
+//					request.setAttribute("mensajeLogin", "Usuario o clave incorrecta.");
+//					loginView.forward(request, response);
+//					e.printStackTrace();
+//				} 
 //			}else{
 //				throw new LoginException("Usuario incorrecto");
 //			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			request.setAttribute("mensajeLogin", "Usuario o clave incorrecta.");
+			try {
+				loginView.forward(request, response);
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			e.printStackTrace();
 		}
 	}

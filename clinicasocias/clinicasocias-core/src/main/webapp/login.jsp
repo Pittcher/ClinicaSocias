@@ -24,7 +24,7 @@
 <body>
 	<!-- 	<!-- 	<h1>Modulo de Server de IntelliRoute Admin</h1> -->
 
-<!-- 	<div id="fullscreen_bg" class="fullscreen_bg" /> -->
+	<div id="fullscreen_bg" class="fullscreen_bg" />
 	<c:set var="baseURL"
 		value="${fn:replace(pageContext.request.requestURL, pageContext.request.requestURI, pageContext.request.contextPath)}" />
 

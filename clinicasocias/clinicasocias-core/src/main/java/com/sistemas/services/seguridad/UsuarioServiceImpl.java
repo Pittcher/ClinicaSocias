@@ -1,5 +1,9 @@
 package com.sistemas.services.seguridad;
 
+import java.security.InvalidKeyException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +23,24 @@ public class UsuarioServiceImpl implements UsuarioService {
 	
 	public boolean loguear(String userName, String password,HttpSession session){
 		
-		final Usuario usuario = this.usuarioBean.loguear(userName, password);
-//		HttpSession session = RequestFactoryServlet.getThreadLocalRequest().getSession();
-		session.setAttribute(HTTP_SESSION_USUARIO_LOGUEADO, usuario);			
-//		session.setAttribute(HTTP_SESSION_FUNCIONALIDADES_PERMITIDAS, usuarioBean.obtenerFuncionalidades(usuario));
-		session.setAttribute(HTTP_SESSION_NOMBRE_USUARIO, usuario.getUserName());
-		//////////////////////////
+		Usuario usuario;
+		try {
+			usuario = this.usuarioBean.loguear(userName, password);
+//			HttpSession session = RequestFactoryServlet.getThreadLocalRequest().getSession();
+			session.setAttribute(HTTP_SESSION_USUARIO_LOGUEADO, usuario);			
+//			session.setAttribute(HTTP_SESSION_FUNCIONALIDADES_PERMITIDAS, usuarioBean.obtenerFuncionalidades(usuario));
+			session.setAttribute(HTTP_SESSION_NOMBRE_USUARIO, usuario.getUserName());
+			//////////////////////////
+		} catch (InvalidKeyException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalBlockSizeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (BadPaddingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	return true;
 		
